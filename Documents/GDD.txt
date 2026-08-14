@@ -1,0 +1,31 @@
+Core Loop:
+
+Short Description: Выковывайте оружие и продавайте его покупателям (Гоблинам). Используйте вырученные от продажи деньги для улучшение кузницы и изготовления оружия более высокого качества.
+
+Главные Механики (По порядку):
+
+- Выкование оружие
+- Продажа оружик
+- Улучшение кузницы
+
+Ассеты:
+
+https://assetstore.unity.com/packages/3d/props/exterior/modular-blacksmith-pack-294735 - Кузница
+https://assetstore.unity.com/packages/3d/props/weapons/free-rpg-weapons-199738 - Оружие
+https://assetstore.unity.com/packages/3d/characters/creatures/lowpo-low-poly-goblin-pack-free-sample-332200 - Покупатели
+
+Development Steps:
+
+1. Player Movement -- detailed explanation
+2. Object Interaction -- detailed explanation
+3. Weapons / Materials -- detailed explanation
+4. Weapon Forging
+- Customer Order Receival -- detailed explanation
+- Material Heating (Metal for example) -- detailed explanation
+- Forging Process -- detailed explanation
+5. Hammer Implementation (Click to hit, etc) -- detailed explanation
+
+Further Steps:
+
+- Forge Upgrading -- detailed explanation
+- ...
