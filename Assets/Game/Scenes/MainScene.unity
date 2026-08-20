@@ -1053,7 +1053,7 @@ GameObject:
   m_Component:
   - component: {fileID: 735960193}
   m_Layer: 0
-  m_Name: WaterBucket
+  m_Name: LavaBucket
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1298,6 +1298,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 426212df299b2ea40bf44207b27195b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
+  playerSpeed: 1
+  playerJumpHeight: 1
+  playerGravity: 1
+  characterController: {fileID: 0}
 --- !u!143 &1441761571
 CharacterController:
   m_ObjectHideFlags: 0
