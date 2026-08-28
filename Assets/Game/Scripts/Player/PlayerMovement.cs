@@ -7,6 +7,8 @@ public class PlayerMovement : MonoBehaviour
     public float playerJumpHeight = 1f;
     public float playerGravity = -20f;
     public float acceleration = 18f;
+    private float verticalVelocity;
+    private Vector3 horizontalVelocity;
 
     [Header("Зависимости")]
     private CharacterController characterController;
@@ -46,9 +48,17 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
+        Vector2 movementInput = Vector2.zero;
+        bool jumpRequested = false;
         if (!gameplayInputEnabled)
         {
             return;
+        }
+        else
+        {
+            movementInput = moveAction.ReadValue<Vector2>();
+            jumpRequested = jumpAction.WasPressedThisFrame();
+            ApplyMovement(movementInput, jumpRequested);
         }
     }
 
@@ -75,10 +85,53 @@ public class PlayerMovement : MonoBehaviour
     }
     private void ApplyMovement(Vector2 input, bool jumpRequested)
     {
-        
+        Vector3 inputDirection = new Vector3(input.x, 0f, input.y);
+        inputDirection = Vector3.ClampMagnitude(inputDirection, 1f);
+        Vector3 targetVelocity =
+            transform.TransformDirection(inputDirection) * playerSpeed;
+        horizontalVelocity = Vector3.MoveTowards(
+            horizontalVelocity,
+            targetVelocity,
+            acceleration * Time.deltaTime);
+        if (characterController.isGrounded && verticalVelocity < 0f)
+        {
+            verticalVelocity = -2f;
+        }
+        if (jumpRequested &&
+            characterController.isGrounded &&
+            playerJumpHeight > 0f)
+        {
+            verticalVelocity = Mathf.Sqrt(
+                playerJumpHeight * -2f * playerGravity);
+        }
+        verticalVelocity += playerGravity * Time.deltaTime;
+        Vector3 finalVelocity =
+            horizontalVelocity + Vector3.up * verticalVelocity;
+        characterController.Move(finalVelocity * Time.deltaTime);
     }
     private void UpdateLook(Vector2 input)
     {
         
+    }
+    private void OnEnable()
+    {
+        if (!initialized)
+        {
+            return;
+        }
+        moveAction.Enable();
+        lookAction.Enable();
+        jumpAction.Enable();
+    }
+    private void OnDisable()
+    {
+        if (!initialized)
+        {
+            return;
+        }
+        moveAction.Disable();
+        lookAction.Disable();
+        jumpAction.Disable();
+
     }
 }
