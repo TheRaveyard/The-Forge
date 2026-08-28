@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 0a7b7f721308bbf428371b4827d20b8d
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 294735
+  packageName: Modular Blacksmith Pack
+  packageVersion: 1.01
+  assetPath: Assets/Blacksmith Pack/Components/Materials/Furniture/Crate_MAT.mat
+  uploadId: 693482

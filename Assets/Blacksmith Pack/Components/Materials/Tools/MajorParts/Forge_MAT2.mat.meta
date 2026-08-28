@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 413554c624396f94f8fe3887ac66714e
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 294735
+  packageName: Modular Blacksmith Pack
+  packageVersion: 1.01
+  assetPath: Assets/Blacksmith Pack/Components/Materials/Tools/MajorParts/Forge_MAT2.mat
+  uploadId: 693482

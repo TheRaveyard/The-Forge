@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: ec4e1d4ecbf33984bb56678883bbf6f8
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 294735
+  packageName: Modular Blacksmith Pack
+  packageVersion: 1.01
+  assetPath: Assets/Blacksmith Pack/Components/Materials/Tools/SmallTools/Other/Pickaxe_MAT.mat
+  uploadId: 693482

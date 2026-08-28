@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 2a18905956348f144b71c2f07647b119
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 294735
+  packageName: Modular Blacksmith Pack
+  packageVersion: 1.01
+  assetPath: Assets/Blacksmith Pack/Components/Materials/Tools/SmallTools/Other/Chisel_MAT.mat
+  uploadId: 693482

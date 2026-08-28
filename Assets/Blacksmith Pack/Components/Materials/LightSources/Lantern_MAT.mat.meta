@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: b45fe62472463024aadc6f865a3c31de
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 294735
+  packageName: Modular Blacksmith Pack
+  packageVersion: 1.01
+  assetPath: Assets/Blacksmith Pack/Components/Materials/LightSources/Lantern_MAT.mat
+  uploadId: 693482

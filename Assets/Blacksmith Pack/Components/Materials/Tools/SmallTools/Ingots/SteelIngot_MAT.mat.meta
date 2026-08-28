@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 945b14e325317df4f88fd92c5d076d48
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 294735
+  packageName: Modular Blacksmith Pack
+  packageVersion: 1.01
+  assetPath: Assets/Blacksmith Pack/Components/Materials/Tools/SmallTools/Ingots/SteelIngot_MAT.mat
+  uploadId: 693482

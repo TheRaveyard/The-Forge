@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: aa1c0f9a837f1ca4db29844c1c87f2b0
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 294735
+  packageName: Modular Blacksmith Pack
+  packageVersion: 1.01
+  assetPath: Assets/Blacksmith Pack/Components/Materials/Products/SwordVAR1_MAT.mat
+  uploadId: 693482

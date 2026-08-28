@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 579682e4bbba08c4ebf35ba74a8e94e4
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 294735
+  packageName: Modular Blacksmith Pack
+  packageVersion: 1.01
+  assetPath: Assets/Blacksmith Pack/Components/Materials/LightSources/CandelabraHanging_MAT.mat
+  uploadId: 693482

@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 73b1b745b45281e42bc4c3b7f89f0050
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 294735
+  packageName: Modular Blacksmith Pack
+  packageVersion: 1.01
+  assetPath: Assets/Blacksmith Pack/Components/Materials/Structuring/Roofs/RoofTiled_MAT.mat
+  uploadId: 693482

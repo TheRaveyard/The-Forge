@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 82183ba1db7f2aa458cc62b4a25af216
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 294735
+  packageName: Modular Blacksmith Pack
+  packageVersion: 1.01
+  assetPath: Assets/Blacksmith Pack/Components/Materials/Tools/SmallTools/Other/Tongs_MAT.mat
+  uploadId: 693482

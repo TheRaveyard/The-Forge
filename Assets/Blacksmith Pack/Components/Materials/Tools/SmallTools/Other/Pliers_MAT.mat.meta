@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: a9d954f1bb6ba094ba265d8cb4515c59
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 294735
+  packageName: Modular Blacksmith Pack
+  packageVersion: 1.01
+  assetPath: Assets/Blacksmith Pack/Components/Materials/Tools/SmallTools/Other/Pliers_MAT.mat
+  uploadId: 693482

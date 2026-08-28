@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: a4b6ae627b23ccc4f98bd41d8cc799ee
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 294735
+  packageName: Modular Blacksmith Pack
+  packageVersion: 1.01
+  assetPath: Assets/Blacksmith Pack/Components/Materials/Structuring/Walls/Thin/2MeterWall_MAT.mat
+  uploadId: 693482
