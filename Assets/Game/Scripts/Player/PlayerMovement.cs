@@ -24,6 +24,11 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Камера")]
     private float cameraPitch;
+
+    [Header("Звуки")]
+    private AudioSource footstepAudio;
+    private float footstepTimer = 0f;
+    private float footstepInterval = 0.3f;
     
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -58,8 +63,9 @@ public class PlayerMovement : MonoBehaviour
         {
             movementInput = moveAction.ReadValue<Vector2>();
             jumpRequested = jumpAction.WasPressedThisFrame();
-            ApplyMovement(movementInput, jumpRequested);
         }
+        Debug.log(movementInput, jumpRequested);
+        ApplyMovement(movementInput, jumpRequested);
     }
 
     private bool TryInitializeInput()
@@ -108,6 +114,7 @@ public class PlayerMovement : MonoBehaviour
         Vector3 finalVelocity =
             horizontalVelocity + Vector3.up * verticalVelocity;
         characterController.Move(finalVelocity * Time.deltaTime);
+        CheckForMovement();
     }
     private void UpdateLook(Vector2 input)
     {
@@ -133,5 +140,14 @@ public class PlayerMovement : MonoBehaviour
         lookAction.Disable();
         jumpAction.Disable();
 
+    }
+    private void CheckForMovement()
+    {
+        footstepTimer -= Time.deltaTime;
+        if (footstepTimer > 0f)
+        {
+            return;
+        }
+        footstepAudio.PlayOneShot(footstepAudio.clip);
     }
 }
