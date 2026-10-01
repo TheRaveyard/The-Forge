@@ -28,13 +28,14 @@ public class PlayerMovement : MonoBehaviour
     [Header("Звуки")]
     private AudioSource footstepAudio;
     private float footstepTimer = 0f;
-    private float footstepInterval = 0.3f;
+    private float footstepInterval = 0.75f;
     
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Awake()
     {
         characterController = GetComponent<CharacterController>();
+        footstepAudio = GetComponent<AudioSource>();
         if(cameraTransform == null && Camera.main != null)
         {
             cameraTransform = Camera.main.transform;
@@ -64,7 +65,8 @@ public class PlayerMovement : MonoBehaviour
             movementInput = moveAction.ReadValue<Vector2>();
             jumpRequested = jumpAction.WasPressedThisFrame();
         }
-        Debug.log(movementInput, jumpRequested);
+        Debug.Log(movementInput);
+        Debug.Log(jumpRequested);
         ApplyMovement(movementInput, jumpRequested);
     }
 
@@ -143,11 +145,21 @@ public class PlayerMovement : MonoBehaviour
     }
     private void CheckForMovement()
     {
+        Vector3 movementVelocity = characterController.velocity;
+        movementVelocity.y = 0f;
+        Debug.Log(movementVelocity);
+        bool isWalking = characterController.isGrounded && movementVelocity.sqrMagnitude > 0.01f;
+        if (!isWalking)
+        {
+            footstepTimer = 0f;
+            return;
+        }
         footstepTimer -= Time.deltaTime;
-        if (footstepTimer > 0f)
+        if (footstepTimer > 0f || footstepAudio.clip == null)
         {
             return;
         }
+        footstepTimer = footstepInterval;
         footstepAudio.PlayOneShot(footstepAudio.clip);
     }
 }
