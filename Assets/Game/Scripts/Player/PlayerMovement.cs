@@ -24,6 +24,10 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Камера")]
     private float cameraPitch;
+    [SerializeField, Min(0f)] private float mouseSensitivity = 0.12f;
+    private bool lookingWithMouse;
+    private CursorLockMode savedCursorLock;
+    private bool savedCursorVisible;
 
     [Header("Звуки")]
     private AudioSource footstepAudio;
@@ -65,17 +69,17 @@ public class PlayerMovement : MonoBehaviour
             movementInput = moveAction.ReadValue<Vector2>();
             jumpRequested = jumpAction.WasPressedThisFrame();
         }
-        Debug.Log(movementInput);
-        Debug.Log(jumpRequested);
+        UpdateLook(lookAction.ReadValue<Vector2>());
         ApplyMovement(movementInput, jumpRequested);
     }
 
     private bool TryInitializeInput()
     {
-        // if (characterController == null || cameraTransform == null || inputActions == null)
-        // {
-        //     return false;
-        // }
+        if (characterController == null || cameraTransform == null || inputActions == null)
+        {
+            Debug.LogError("PlayerMovement: нужны CharacterController, основная камера и Input Actions.", this);
+            return false;
+        }
         InputActionMap playerMap = inputActions.FindActionMap("Player", false);
         moveAction = playerMap?.FindAction("Move", false);
         lookAction = playerMap?.FindAction("Look", false);
@@ -95,8 +99,9 @@ public class PlayerMovement : MonoBehaviour
     {
         Vector3 inputDirection = new Vector3(input.x, 0f, input.y);
         inputDirection = Vector3.ClampMagnitude(inputDirection, 1f);
-        Vector3 targetVelocity =
-            transform.TransformDirection(inputDirection) * playerSpeed;
+        Vector3 forward = Vector3.ProjectOnPlane(cameraTransform.forward, Vector3.up).normalized;
+        Vector3 right = Vector3.Cross(Vector3.up, forward);
+        Vector3 targetVelocity = (right * inputDirection.x + forward * inputDirection.z) * playerSpeed;
         horizontalVelocity = Vector3.MoveTowards(
             horizontalVelocity,
             targetVelocity,
@@ -120,7 +125,40 @@ public class PlayerMovement : MonoBehaviour
     }
     private void UpdateLook(Vector2 input)
     {
-        
+        // ПКМ включает обзор, свободный курсор остаётся доступным для подбора.
+        bool wantsLook = Application.isFocused && Time.timeScale > 0f &&
+            Mouse.current != null && Mouse.current.rightButton.isPressed;
+        if (!wantsLook)
+        {
+            RestoreCursor();
+            return;
+        }
+        if (!lookingWithMouse)
+        {
+            savedCursorLock = Cursor.lockState;
+            savedCursorVisible = Cursor.visible;
+            lookingWithMouse = true;
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+            return;
+        }
+        transform.Rotate(0f, input.x * mouseSensitivity, 0f);
+        cameraPitch = Mathf.Clamp(cameraPitch - input.y * mouseSensitivity, -85f, 85f);
+        Vector3 angles = cameraTransform.localEulerAngles;
+        cameraTransform.localRotation = Quaternion.Euler(cameraPitch, angles.y, angles.z);
+    }
+
+    private void RestoreCursor()
+    {
+        if (!lookingWithMouse) return;
+        lookingWithMouse = false;
+        Cursor.lockState = savedCursorLock;
+        Cursor.visible = savedCursorVisible;
+    }
+
+    private void OnApplicationFocus(bool hasFocus)
+    {
+        if (!hasFocus) RestoreCursor();
     }
     private void OnEnable()
     {
@@ -134,6 +172,9 @@ public class PlayerMovement : MonoBehaviour
     }
     private void OnDisable()
     {
+        RestoreCursor();
+        horizontalVelocity = Vector3.zero;
+        verticalVelocity = 0f;
         if (!initialized)
         {
             return;
@@ -147,7 +188,6 @@ public class PlayerMovement : MonoBehaviour
     {
         Vector3 movementVelocity = characterController.velocity;
         movementVelocity.y = 0f;
-        Debug.Log(movementVelocity);
         bool isWalking = characterController.isGrounded && movementVelocity.sqrMagnitude > 0.01f;
         if (!isWalking)
         {
@@ -155,7 +195,7 @@ public class PlayerMovement : MonoBehaviour
             return;
         }
         footstepTimer -= Time.deltaTime;
-        if (footstepTimer > 0f || footstepAudio.clip == null)
+        if (footstepTimer > 0f || footstepAudio == null || footstepAudio.clip == null)
         {
             return;
         }

@@ -41,7 +41,7 @@ public sealed class ObjectInteraction : MonoBehaviour
         if (interactionCamera == null) interactionCamera = Camera.main;
         if (inputActions == null && TryGetComponent(out PlayerMovement movement))
             inputActions = movement.inputActions;
-        InputActionMap map = inputActions.FindActionMap("Player", false);
+        InputActionMap map = inputActions != null ? inputActions.FindActionMap("Player", false) : null;
         // Копии сохраняют привязки проекта, но имеют независимый жизненный цикл.
         pickupAction = map?.FindAction("Interact", false)?.Clone();
         throwAction = map?.FindAction("Throw", false)?.Clone();

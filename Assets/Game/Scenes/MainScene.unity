@@ -5386,7 +5386,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 0.392}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -7002,6 +7002,7 @@ GameObject:
   - component: {fileID: 1441761571}
   - component: {fileID: 1441761570}
   - component: {fileID: 1441761573}
+  - component: {fileID: 1441761574}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -7026,6 +7027,30 @@ MonoBehaviour:
   playerGravity: -20
   acceleration: 18
   inputActions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+--- !u!114 &1441761574
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1441761569}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39da166136b107e4ead4aaec310a385a, type: 3}
+  m_Name:
+  m_EditorClassIdentifier: Assembly-CSharp::ObjectInteraction
+  interactionCamera: {fileID: 330585545}
+  inputActions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+  pickupDistance: 3
+  interactionLayers:
+    serializedVersion: 2
+    m_Bits: 4294967291
+  holdDistance: 1.5
+  breakDistance: 3
+  positionSpring: 60
+  velocityDamping: 15
+  maxAcceleration: 80
+  throwImpulse: 6
 --- !u!143 &1441761571
 CharacterController:
   m_ObjectHideFlags: 0
