@@ -1,16 +1,15 @@
 using UnityEngine;
 
-public class MaterialController : MonoBehaviour
+public enum OreType
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    Gold, 
+    Bronze, 
+    Copper,
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+}
+public class MaterialDefinition : MonoBehaviour
+{
+    private OreType oreType;
+    public OreType Type => oreType;
+
 }
