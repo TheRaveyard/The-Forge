@@ -56,14 +56,14 @@ public class Furnace : MonoBehaviour
                 goldCount++; //goldCount = goldCount + 1;
                 break;
             case OreType.Bronze:
-                if (bronzeCount >= requiredGold)
+                if (bronzeCount >= requiredBronze)
                 {
                     return;
                 }
                 bronzeCount++;
                 break;
             case OreType.Copper:
-                if (copperCount >= requiredGold)
+                if (copperCount >= requiredCopper)
                 {
                     return;
                 }
