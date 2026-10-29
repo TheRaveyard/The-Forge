@@ -39,13 +39,12 @@ public class Furnace : MonoBehaviour
         {
             return;
         }
-
         if (!body.TryGetComponent(out MaterialDefinition material) ||
             !material.isActiveAndEnabled ||
             !body.TryGetComponent(out PickupItem item) ||
             !item.isActiveAndEnabled || item.IsHeld)
             return;
-        
+        Debug.Log(body);
         switch (material.Type)
         {
             case OreType.Gold:
@@ -54,6 +53,7 @@ public class Furnace : MonoBehaviour
                     return;
                 }
                 goldCount++; //goldCount = goldCount + 1;
+                Debug.Log(goldCount);
                 break;
             case OreType.Bronze:
                 if (bronzeCount >= requiredBronze)
@@ -61,6 +61,7 @@ public class Furnace : MonoBehaviour
                     return;
                 }
                 bronzeCount++;
+                Debug.Log(bronzeCount);
                 break;
             case OreType.Copper:
                 if (copperCount >= requiredCopper)
@@ -68,6 +69,7 @@ public class Furnace : MonoBehaviour
                     return;
                 }
                 copperCount++;
+                Debug.Log(copperCount);
                 break;
             default:
                 return;
