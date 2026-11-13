@@ -44,6 +44,8 @@ public class Anvil : MonoBehaviour
         body.angularVelocity = Vector3.zero;
         body.useGravity = false;
         body.isKinematic = true;
+        body.transform.SetParent(placementPoint, false);
+        body.transform.SetLocalPositionAndRotation(Vector3.zero, Quaternion.identity);
         Full = true;
         Debug.Log("Загатовка Поставленна");
     }

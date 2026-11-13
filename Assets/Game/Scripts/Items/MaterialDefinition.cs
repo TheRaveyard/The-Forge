@@ -9,7 +9,7 @@ public enum OreType
 }
 public class MaterialDefinition : MonoBehaviour
 {
-    private OreType oreType;
+    public OreType oreType;
     public OreType Type => oreType;
 
 }

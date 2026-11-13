@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UIElements;
 [DisallowMultipleComponent]
 [RequireComponent(typeof(BoxCollider))]
 
@@ -7,10 +8,13 @@ public class Furnace : MonoBehaviour
     public int goldCount;
     public int copperCount;
     public int bronzeCount;
-    public bool isComplete => goldCount >= requiredGold && copperCount >= requiredCopper;
-    private int requiredGold = 2;
+    public bool isComplete => goldCount >= requiredGold && copperCount >= requiredCopper && bronzeCount >= requiredBronze;
+    private int requiredGold = 0;
     private int requiredBronze = 0;
     private int requiredCopper = 1;
+    public GameObject unfinishedItemPrefab;
+
+    public Transform spawnPoint;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -24,6 +28,10 @@ public class Furnace : MonoBehaviour
         
     }
     
+    public void SpawnUnfinishedItem()
+    {
+        GameObject unfinishedItem = Instantiate(unfinishedItemPrefab, spawnPoint.position, spawnPoint.rotation);
+    }
     private void OnTriggerStay(Collider other)
     {
         TryAccept(other);
@@ -44,7 +52,7 @@ public class Furnace : MonoBehaviour
             !body.TryGetComponent(out PickupItem item) ||
             !item.isActiveAndEnabled || item.IsHeld)
             return;
-        Debug.Log(body);
+        Debug.Log(material.Type);
         switch (material.Type)
         {
             case OreType.Gold:
@@ -74,11 +82,12 @@ public class Furnace : MonoBehaviour
             default:
                 return;
         }
-
-        if (isComplete == true)
-        {
-            return;
-        }
+        
         Destroy(other.attachedRigidbody.gameObject);
+        //if (isComplete)
+        //{
+            Debug.Log("Item spawned");
+            SpawnUnfinishedItem();
+        //}
     }
 }

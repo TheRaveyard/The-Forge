@@ -97,6 +97,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e89095c137dab3e468a7844cce629d70, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2147633315298823567}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e89095c137dab3e468a7844cce629d70, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 720691619785244384}
   m_SourcePrefab: {fileID: 100100000, guid: e89095c137dab3e468a7844cce629d70, type: 3}
 --- !u!1 &3083083166466465535 stripped
 GameObject:
@@ -164,3 +167,16 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &720691619785244384
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3083083166466465535}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03f9fefa933ed294692869fcb6856a8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MaterialDefinition
+  oreType: 0
